@@ -141,8 +141,7 @@ function  requestPermission () {
 function requestDeviceOrientation () {
     if (typeof DeviceOrientationEvent.requestPermission === 'function') {
         // Handle iOS 13+ devices.
-        DeviceOrientationEvent.requestPermission()
-          .then((state) => {
+        DeviceOrientationEvent.requestPermission().then(state => {
             if (state === 'granted') {
                 alert('Permiso Otorgado');
                 window.addEventListener('deviceorientation', (e) => {
@@ -154,9 +153,6 @@ function requestDeviceOrientation () {
                 console.error('Request to access the orientation was rejected');
             }
           })
-          .catch(console.error);
-
-          alert('Error: ');
       } else {
         // Handle regular non iOS 13+ devices.
         //alert('Not ios');
