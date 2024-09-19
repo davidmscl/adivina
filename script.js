@@ -132,7 +132,7 @@ function detectarMovimiento(event) {
         return; // No hacer nada mientras se espera la posición neutral
     } else {
         // Movimiento hacia abajo (beta > 100 grados) para acierto
-        if ( 0 < gamma && gamma < 20 ) {
+        if ( 5 < gamma && gamma < 30 ) {
             aciertos++;
             acierto.play();
             //actualizarContador();
@@ -140,7 +140,7 @@ function detectarMovimiento(event) {
             mostrarSiguienteConcepto();
         }
         // Movimiento hacia arriba (beta < 80 grados) para error
-        else if ( -20 < gamma && gamma < 0 ) {
+        else if ( -30 < gamma && gamma < -5 ) {
             errores++;
             paso.play();
             //actualizarContador();
