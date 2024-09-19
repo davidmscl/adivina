@@ -120,15 +120,15 @@ function iniciarTemporizador() {
 }
 
 function requestDeviceOrientation () {
-    if (typeof DeviceMotionEvent.requestPermission === 'function') {
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
         // Handle iOS 13+ devices.
-        DeviceMotionEvent.requestPermission()
+        DeviceOrientationEvent.requestPermission()
           .then((state) => {
             if (state === 'granted') {
                 alert('Permiso Otorgado');
                 window.addEventListener('deviceorientation', detectarMovimiento);
             } else {
-                alert('Permiso rechazado');
+                alert('Permiso rechazado: ' + state);
                 console.error('Request to access the orientation was rejected');
             }
           })
