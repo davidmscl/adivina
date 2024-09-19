@@ -122,7 +122,7 @@ function detectarMovimiento(event) {
     alpha = event.alpha;
     beta = event.beta;
     gamma = Math.trunc( event.gamma ) ;
-    //document.getElementById('betaValue').textContent = `Gamma: ${gamma}`;
+    document.getElementById('betaValue').textContent = `Gamma: ${gamma}`;
     // Comprobar si estamos esperando la posición neutral
     if (esperandoPosicionNeutral) {
         // La posición neutral es cuando el dispositivo está en vertical (beta ~90)
