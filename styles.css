@@ -4,6 +4,18 @@ body {
     padding: 20px;
 }
 
+.concepto {
+    font-size: 72px;
+  }
+
+.juego-screen { 
+    display: flex;
+    justify-content: center;  /* Alinea horizontalmente */
+    align-items: center;      /* Alinea verticalmente */
+    height: 100vh;            /* Altura completa de la ventana */
+    border: 1px solid black;  /* Solo para visualizar el contenedor */
+}
+
 .oculto {
     display: none;
 }
