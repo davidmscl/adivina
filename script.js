@@ -131,12 +131,13 @@ function requestDeviceOrientation () {
                 window.addEventListener('deviceorientation', detectarMovimiento);
             } else {
                 alert('Permiso rechazado');
-              console.error('Request to access the orientation was rejected');
+                console.error('Request to access the orientation was rejected');
             }
           })
-          .catch(console.error);
+          alert('Error: ');
       } else {
         // Handle regular non iOS 13+ devices.
+        alert('Not ios');
         window.addEventListener('deviceorientation', detectarMovimiento, false);
     } 
   }
