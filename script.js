@@ -140,7 +140,7 @@ function detectarMovimiento(event) {
             mostrarSiguienteConcepto();
         }
         // Movimiento hacia arriba (beta < 80 grados) para error
-        else if ( -20 > gamma && gamma > 0 ) {
+        else if ( -20 < gamma && gamma < 0 ) {
             errores++;
             paso.play();
             //actualizarContador();
