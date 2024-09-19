@@ -40,6 +40,11 @@ function mostrarCategorias() {
         });
         categoryList.appendChild(li);
     }
+    
+    muestra('categoria-screen');
+    oculta('juego-screen');
+    oculta('resultado-screen');
+
 }
 
 // Iniciar el juego con la categoría seleccionada
