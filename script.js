@@ -127,9 +127,9 @@ function  requestPermission () {
         DeviceMotionEvent.requestPermission().then(permissionState => {
             if (permissionState == 'granted') {
                 // ...
-                alert('Otorgado');
+               // alert('Otorgado');
             } else {
-                alert('Negado');
+               // alert('Negado');
             }
         })
     } 
@@ -140,7 +140,7 @@ function requestDeviceOrientation () {
         // Handle iOS 13+ devices.
         DeviceOrientationEvent.requestPermission().then(state => {
             if (state === 'granted') {
-                alert('Permiso Otorgado');
+                // alert('Permiso Otorgado');
                 window.addEventListener('deviceorientation', (e) => {
                     // do something with e
                     detectarMovimiento(e);
