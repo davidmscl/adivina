@@ -4,6 +4,16 @@ body {
     padding: 20px;
 }
 
+.my-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 2em;
+  }
+
 .concepto {
     font-size: 72px;
   }
