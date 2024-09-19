@@ -93,7 +93,7 @@ function shuffleArray(array) {
 // Iniciar el temporizador de 3 minutos
 function iniciarTemporizador() {
 
-    let tiempoRestante = 180; // 3 minutos en segundos
+    let tiempoRestante = 60; // 1 minutos en segundos
     timerInterval = setInterval(() => {
         tiempoRestante--;
         const minutos = Math.floor(tiempoRestante / 60);
