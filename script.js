@@ -107,13 +107,14 @@ function iniciarTemporizador() {
             finalizarJuego();
         }
     }, 1000);
-    if (window.DeviceOrientationEvent) {
-        requestDeviceOrientation();
+    requestDeviceOrientation();
+//    if (window.DeviceOrientationEvent) {
+        
         
         //alert('Soportado !')
-    } else {
-        alert('Browser NO Soportado !')
-    } 
+//    } else {
+//        alert('Browser NO Soportado !')
+//    } 
 }
 
 function requestDeviceOrientation ()   {
