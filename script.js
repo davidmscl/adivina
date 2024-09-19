@@ -137,7 +137,7 @@ function requestDeviceOrientation () {
           })
           .catch(console.error);
 
-          alert('Error: '+console.error);
+          alert('Error: ');
       } else {
         // Handle regular non iOS 13+ devices.
         //alert('Not ios');
