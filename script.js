@@ -109,15 +109,13 @@ function iniciarTemporizador() {
     }, 1000);
     requestDeviceOrientation();
 //    if (window.DeviceOrientationEvent) {
-        
-        
         //alert('Soportado !')
 //    } else {
 //        alert('Browser NO Soportado !')
 //    } 
 }
 
-function requestDeviceOrientation ()   {
+function requestDeviceOrientation () {
     if (typeof DeviceMotionEvent.requestPermission === 'function') {
         // Handle iOS 13+ devices.
         DeviceMotionEvent.requestPermission()
@@ -132,8 +130,7 @@ function requestDeviceOrientation ()   {
       } else {
         // Handle regular non iOS 13+ devices.
         window.addEventListener('deviceorientation', detectarMovimiento, false);
-    }
-    
+    } 
   }
 
 
