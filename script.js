@@ -124,17 +124,14 @@ function iniciarTemporizador() {
 
 function  requestPermission () {
     if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-    // Handle iOS 13+ devices.
-    DeviceOrientationEvent.requestPermission()
-      .then((state) => {
-        if (state === 'granted') {
-            alert('Permiso Otorgado');
-        } else {
-            alert('Permiso rechazado: ' + state);
-        }
-      })
-      .catch(console.error);
-    } else {
+        DeviceMotionEvent.requestPermission().then(permissionState => {
+            if (permissionState == 'granted') {
+                // ...
+                alert('Otorgado');
+            } else {
+                alert('Negado');
+            }
+        })
     } 
 }
 
