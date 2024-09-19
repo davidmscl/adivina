@@ -108,13 +108,29 @@ function iniciarTemporizador() {
         }
     }, 1000);
     if (window.DeviceOrientationEvent) {
-        window.addEventListener('deviceorientation', detectarMovimiento, false);
+        requestDeviceOrientation
+        
         //alert('Soportado !')
     } else {
         alert('Browser NO Soportado !')
-    }
-  
+    } 
 }
+
+function requestDeviceOrientation () {
+    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+        DeviceOrientationEvent.requestPermission()
+        .then(permissionState => {
+        if (permissionState === 'granted') {
+            window.addEventListener('deviceorientation', () => { detectarMovimiento });
+        }
+        })
+    .catch(console.error);
+    } else {
+    // handle regular non iOS 13+ devices
+        console.log ("not iOS");
+        window.addEventListener('deviceorientation', detectarMovimiento, false);
+    }
+  }
 
 // Detectar gestos del dispositivo (aciertos/errores)
 function detectarMovimiento(event) {
