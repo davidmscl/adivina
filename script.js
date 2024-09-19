@@ -10,6 +10,7 @@ let esperandoPosicionNeutral = false;
 const backgroundMusic = document.getElementById('background-music');
 const paso = document.getElementById('paso');
 const acierto = document.getElementById('acierto');
+const fin = document.getElementById('fin');
 
 // Cargar categorías desde el archivo categorias.txt
 fetch('categorias.txt')
@@ -67,7 +68,7 @@ function iniciarJuego(categoria) {
         mostrarSiguienteConcepto();
     
         // Iniciar la música
-        backgroundMusic.play();
+        // backgroundMusic.play();
     
       }
     }, 1000);
@@ -160,7 +161,8 @@ function finalizarJuego() {
     document.getElementById('correct-count').textContent = aciertos;
     document.getElementById('wrong-count').textContent = errores;
     
-     
+    fin.play();
+
     // Detener la música
     backgroundMusic.pause();
     backgroundMusic.currentTime = 0; // Reiniciar la música
