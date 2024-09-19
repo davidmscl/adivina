@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px;
+}
+
+.oculto {
+    display: none;
+}
+
+.ver {
+    display: block;
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #ddd;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#betaValue {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
