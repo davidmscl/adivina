@@ -2,6 +2,7 @@ let categorias = {};
 let conceptos = [];
 let currentCategory = "";
 let timerInterval;
+let countdown;
 let aciertos = 0;
 let errores = 0;
 let esperandoPosicionNeutral = false;
@@ -48,13 +49,16 @@ function iniciarJuego(categoria) {
     shuffleArray(conceptos); // Mezclar los conceptos aleatoriamente
     aciertos = 0;
     errores = 0;
+
+    let seconds = 5;
+    const timerElement = document.getElementById('concepto');
+
+    timerElement.textContent = '5';
+
     oculta('categoria-screen');
     muestra('juego-screen');
     oculta('resultado-screen');
 
-
-    let seconds = 5;
-    const timerElement = document.getElementById('concepto');
 
     const countdown = setInterval(() => {
       seconds--;
@@ -103,7 +107,7 @@ function iniciarTemporizador() {
         const segundos = tiempoRestante % 60;
         document.getElementById('timer').textContent = `${minutos}:${segundos < 10 ? '0' + segundos : segundos}`;
         if (tiempoRestante <= 0) {
-            clearInterval(timerInterval);
+//            clearInterval(timerInterval);
             finalizarJuego();
         }
     }, 1000);
@@ -116,8 +120,10 @@ function iniciarTemporizador() {
 }
 
 function requestDeviceOrientation () {
+    alert('Solicita permiso');
     if (typeof DeviceMotionEvent.requestPermission === 'function') {
         // Handle iOS 13+ devices.
+        alert('permiso 2');
         DeviceMotionEvent.requestPermission()
           .then((state) => {
             if (state === 'granted') {
@@ -176,14 +182,15 @@ function finalizarJuego() {
 
     oculta('juego-screen');
     muestra('resultado-screen');
+    document.getElementById('concepto').textContent = '';
     document.getElementById('correct-count').textContent = aciertos;
     document.getElementById('wrong-count').textContent = errores;
     
     fin.play();
 
     // Detener la música
-    backgroundMusic.pause();
-    backgroundMusic.currentTime = 0; // Reiniciar la música
+    //backgroundMusic.pause();
+    //backgroundMusic.currentTime = 0; // Reiniciar la música
 }
 
 // Reiniciar el juego
@@ -196,6 +203,7 @@ document.getElementById('restart-btn').addEventListener('click', () => {
 
 // Cancelar el juego
 document.getElementById('cancel-btn').addEventListener('click', () => {
+    clearInterval(timerInterval);
     finalizarJuego();
 });
 
