@@ -126,7 +126,10 @@ function requestDeviceOrientation () {
           .then((state) => {
             if (state === 'granted') {
                 alert('Permiso Otorgado');
-                window.addEventListener('deviceorientation', detectarMovimiento);
+                window.addEventListener('deviceorientation', (e) => {
+                    // do something with e
+                    detectarMovimiento(e);
+                    })
             } else {
                 alert('Permiso rechazado: ' + state);
                 console.error('Request to access the orientation was rejected');
