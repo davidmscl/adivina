@@ -108,7 +108,7 @@ function iniciarTemporizador() {
         }
     }, 1000);
     if (window.DeviceOrientationEvent) {
-        requestDeviceOrientation
+        requestDeviceOrientation();
         
         //alert('Soportado !')
     } else {
@@ -116,24 +116,24 @@ function iniciarTemporizador() {
     } 
 }
 
-function requestDeviceOrientation () {
-    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
-        DeviceOrientationEvent.requestPermission()
+function requestDeviceOrientation ()   {
+    // feature detect
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+      DeviceOrientationEvent.requestPermission()
         .then(permissionState => {
-        if (permissionState === 'granted') {
-       //     window.addEventListener('deviceorientation', () => { detectarMovimiento });
+          if (permissionState === 'granted') {
             window.addEventListener('deviceorientation', function(event) {
                 detectarMovimiento(event);
-       
-        }
+                });
+          }
         })
-    .catch(console.error);
+        .catch(console.error);
     } else {
-    // handle regular non iOS 13+ devices
-        console.log ("not iOS");
-        window.addEventListener('deviceorientation', detectarMovimiento, false);
+      // handle regular non iOS 13+ devices
+      window.addEventListener('deviceorientation', detectarMovimiento, false);
     }
   }
+
 
 // Detectar gestos del dispositivo (aciertos/errores)
 function detectarMovimiento(event) {
