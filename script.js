@@ -121,7 +121,10 @@ function requestDeviceOrientation () {
         DeviceOrientationEvent.requestPermission()
         .then(permissionState => {
         if (permissionState === 'granted') {
-            window.addEventListener('deviceorientation', () => { detectarMovimiento });
+       //     window.addEventListener('deviceorientation', () => { detectarMovimiento });
+            window.addEventListener('deviceorientation', function(event) {
+                detectarMovimiento(event);
+       
         }
         })
     .catch(console.error);
