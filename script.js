@@ -8,6 +8,8 @@ let esperandoPosicionNeutral = false;
 
 // Referencia al audio
 const backgroundMusic = document.getElementById('background-music');
+const paso = document.getElementById('paso');
+const acierto = document.getElementById('acierto');
 
 // Cargar categorías desde el archivo categorias.txt
 fetch('categorias.txt')
@@ -129,15 +131,17 @@ function detectarMovimiento(event) {
         return; // No hacer nada mientras se espera la posición neutral
     } else {
         // Movimiento hacia abajo (beta > 100 grados) para acierto
-        if ( -20 > gamma && gamma > 0) {
+        if ( 0 < gamma && gamma < 20 ) {
             aciertos++;
+            acierto.play();
             //actualizarContador();
             esperandoPosicionNeutral = true; // Esperar a que vuelva a la posición original
             mostrarSiguienteConcepto();
         }
         // Movimiento hacia arriba (beta < 80 grados) para error
-        else if (  0 < gamma && gamma < 20) {
+        else if ( -20 > gamma && gamma > 0 ) {
             errores++;
+            paso.play();
             //actualizarContador();
             esperandoPosicionNeutral = true; // Esperar a que vuelva a la posición original
             mostrarSiguienteConcepto();
