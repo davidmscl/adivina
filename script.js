@@ -44,6 +44,9 @@ function mostrarCategorias() {
 
 // Iniciar el juego con la categoría seleccionada
 function iniciarJuego(categoria) {
+    
+    requestPermission();
+    
     currentCategory = categoria;
     conceptos = [...categorias[categoria]]; // Copiar conceptos
     shuffleArray(conceptos); // Mezclar los conceptos aleatoriamente
@@ -117,6 +120,22 @@ function iniciarTemporizador() {
 //    } else {
 //        alert('Browser NO Soportado !')
 //    } 
+}
+
+function  requestPermission () {
+    if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+    // Handle iOS 13+ devices.
+    DeviceOrientationEvent.requestPermission()
+      .then((state) => {
+        if (state === 'granted') {
+            alert('Permiso Otorgado');
+        } else {
+            alert('Permiso rechazado: ' + state);
+        }
+      })
+      .catch(console.error);
+    } else {
+    } 
 }
 
 function requestDeviceOrientation () {
